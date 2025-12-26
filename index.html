@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Trav – Traversing Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<style>
+body {
+  background-color: black;
+  color: white;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 40px;
+}
+#para2 {
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+</style>
+
+<script language="JavaScript">
+
+/* =====================
+   WORD ARRAYS
+===================== */
+
+var myArray = [
+ " essential usefulness ",
+ " its edge sustains ",
+ " condition ",
+ " underlines the loss ",
+ " proves basic ",
+ " withstanding basic ",
+ " is remote from ",
+ " almost new situation ",
+ " likely to order basic "
+];
+
+var myArray1 = [
+ " far of ",
+ " proof ",
+ " might be destroyed ",
+ " to prove ",
+ " buried ",
+ " takes the emphasis ",
+ " almost new ",
+ " order emphasis ",
+ " as for that "
+];
+
+var myArray2 = [
+ " to the phases ",
+ " wasting some ",
+ " in direct communication ",
+ " distant ",
+ " other ",
+ " makes wasteful ",
+ " necessary practicality ",
+ " underline of weird loss ",
+ " it remaining "
+];
+
+var myArray3 = [
+ " higher method ",
+ " as order ",
+ " sort of ",
+ " not important ",
+ " to the phases ",
+ " remains wasteful ",
+ " however it is buried ",
+ " to be that ",
+ " other things "
+];
+
+var myArray4 = [
+ " eventually ",
+ " seek ",
+ " to love ",
+ " it is special ",
+ " cultivate the causes ",
+ " present ",
+ " of that seeking ",
+ " which in its loss supports ",
+ " several states presently "
+];
+
+var myArray5 = [
+ " distant usefulness ",
+ " substantial usefulness ",
+ " important usefulness ",
+ " search procedure ",
+ " definite space ",
+ " not to waste ",
+ " distant condition ",
+ " used condition ",
+ " high contrary "
+];
+
+var myArray6 = [
+ " ungrammatical ",
+ " discontinuous later ",
+ " be pleased ",
+ " enquiry knowledge ",
+ " physical sensibility ",
+ " intend ",
+ " incorrect ",
+ " incomplete "
+];
+
+var myArray7 = [
+ " beyond recall ",
+ " distinction ",
+ " intrinsically ",
+ " connecting medium ",
+ " distinguished increase ",
+ " motion ",
+ " beginning ",
+ " rank ",
+ " extent "
+];
+
+var myArray8 = [
+ " faraway retrospective ",
+ " project to exist ",
+ " request at ",
+ " executive agency ",
+ " knowledge motion ",
+ " be supported ",
+ " the cause of ",
+ " remember ",
+ " uninterrupted sequence "
+];
+
+var myArray9 = [
+ " moves here ",
+ " nearly to change ",
+ " it must be ",
+ " change with us ",
+ " for this purpose ",
+ " are its designation ",
+ " a certain inscription ",
+ " with its base and parts ",
+ " its partial significance "
+];
+
+/* =====================
+   BUILD WORD POOL
+===================== */
+
+var allArrays = [
+  myArray, myArray1, myArray2, myArray3, myArray4,
+  myArray5, myArray6, myArray7, myArray8, myArray9
+];
+
+var wordPool = [];
+
+for (var i = 0; i < allArrays.length; i++) {
+  for (var j = 0; j < allArrays[i].length; j++) {
+    wordPool.push(allArrays[i][j]);
+  }
+}
+
+/* =====================
+   RANDOMISE + DISPLAY
+===================== */
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+}
+
+function displayTraversal() {
+  var tempPool = wordPool.slice();
+  shuffle(tempPool);
+
+  var count = Math.floor(Math.random() * 6) + 5; // 5–10 words
+  var output = "";
+
+  for (var i = 0; i < count; i++) {
+    output += tempPool[i];
+  }
+
+  document.getElementById("para2").innerHTML = output;
+}
+
+</script>
+</head>
+
+<body onload="displayTraversal(); setInterval(displayTraversal, 30000);">
+
+<p id="para2"></p>
+
+</body>
+</html>
