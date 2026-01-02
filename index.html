@@ -186,7 +186,15 @@ function displayTraversal() {
 
   document.getElementById("para2").innerHTML = output;
 }
-
+fetch("https://vicmt093-cmd.github.io")
+  .then(r => r.text())
+  .then(html => {
+    const text = html.replace(/<[^>]+>/g, "").slice(0, 280);
+    navigator.clipboard.writeText(text);
+    alert("Tweet text copied. Paste into X.");
+    location.reload();
+  });
+</script>
 </script>
 </head>
 
