@@ -1,206 +1,139 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html>
+
 <html>
+
 <head>
-<title>Trav – Traversing Page</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta charset="UTF-8">
+
+<title>Fluent AI Generator</title>
 
 <style>
+
 body {
-  background-color: black;
-  color: white;
-  font-family: Georgia, "Times New Roman", serif;
-  padding: 40px;
+
+    background: black;
+
+    color: #00ff88;
+
+    font-family: monospace;
+
+    padding: 30px;
+
 }
-#para2 {
-  font-size: 18px;
-  line-height: 1.6;
-  letter-spacing: 0.5px;
+
+#output {
+
+    white-space: pre-wrap;
+
+    line-height: 1.6;
+
 }
+
 </style>
 
-<script language="JavaScript">
-
-/* =====================
-   WORD ARRAYS
-===================== */
-
-var myArray = [
- " essential usefulness ",
- " its edge sustains ",
- " condition ",
- " underlines the loss ",
- " proves basic ",
- " withstanding basic ",
- " is remote from ",
- " almost new situation ",
- " likely to order basic "
-];
-
-var myArray1 = [
- " far of ",
- " proof ",
- " might be destroyed ",
- " to prove ",
- " buried ",
- " takes the emphasis ",
- " almost new ",
- " order emphasis ",
- " as for that "
-];
-
-var myArray2 = [
- " to the phases ",
- " wasting some ",
- " in direct communication ",
- " distant ",
- " other ",
- " makes wasteful ",
- " necessary practicality ",
- " underline of weird loss ",
- " it remaining "
-];
-
-var myArray3 = [
- " higher method ",
- " as order ",
- " sort of ",
- " not important ",
- " to the phases ",
- " remains wasteful ",
- " however it is buried ",
- " to be that ",
- " other things "
-];
-
-var myArray4 = [
- " eventually ",
- " seek ",
- " to love ",
- " it is special ",
- " cultivate the causes ",
- " present ",
- " of that seeking ",
- " which in its loss supports ",
- " several states presently "
-];
-
-var myArray5 = [
- " distant usefulness ",
- " substantial usefulness ",
- " important usefulness ",
- " search procedure ",
- " definite space ",
- " not to waste ",
- " distant condition ",
- " used condition ",
- " high contrary "
-];
-
-var myArray6 = [
- " ungrammatical ",
- " discontinuous later ",
- " be pleased ",
- " enquiry knowledge ",
- " physical sensibility ",
- " intend ",
- " incorrect ",
- " incomplete "
-];
-
-var myArray7 = [
- " beyond recall ",
- " distinction ",
- " intrinsically ",
- " connecting medium ",
- " distinguished increase ",
- " motion ",
- " beginning ",
- " rank ",
- " extent "
-];
-
-var myArray8 = [
- " faraway retrospective ",
- " project to exist ",
- " request at ",
- " executive agency ",
- " knowledge motion ",
- " be supported ",
- " the cause of ",
- " remember ",
- " uninterrupted sequence "
-];
-
-var myArray9 = [
- " moves here ",
- " nearly to change ",
- " it must be ",
- " change with us ",
- " for this purpose ",
- " are its designation ",
- " a certain inscription ",
- " with its base and parts ",
- " its partial significance "
-];
-
-/* =====================
-   BUILD WORD POOL
-===================== */
-
-var allArrays = [
-  myArray, myArray1, myArray2, myArray3, myArray4,
-  myArray5, myArray6, myArray7, myArray8, myArray9
-];
-
-var wordPool = [];
-
-for (var i = 0; i < allArrays.length; i++) {
-  for (var j = 0; j < allArrays[i].length; j++) {
-    wordPool.push(allArrays[i][j]);
-  }
-}
-
-/* =====================
-   RANDOMISE + DISPLAY
-===================== */
-
-function shuffle(arr) {
-  for (var i = arr.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-  }
-}
-
-function displayTraversal() {
-  var tempPool = wordPool.slice();
-  shuffle(tempPool);
-
-  var count = Math.floor(Math.random() * 6) + 5; // 5–10 words
-  var output = "";
-
-  for (var i = 0; i < count; i++) {
-    output += tempPool[i];
-  }
-
-  document.getElementById("para2").innerHTML = output;
-}
-fetch("https://vicmt093-cmd.github.io")
-  .then(r => r.text())
-  .then(html => {
-    const text = html.replace(/<[^>]+>/g, "").slice(0, 280);
-    navigator.clipboard.writeText(text);
-    alert("Tweet text copied. Paste into X.");
-    location.reload();
-  });
-</script>
-</script>
 </head>
 
-<body onload="displayTraversal(); setInterval(displayTraversal, 30000);">
+<body>
 
-<p id="para2"></p>
+<h2>Fluent AI Generator</h2>
+
+<div id="output"></div>
+
+<script>
+
+const subjects = [
+
+    "Consciousness",
+
+    "Memory",
+
+    "Language",
+
+    "Pattern",
+
+    "Identity",
+
+    "Dreams"
+
+];
+
+const verbs = [
+
+    "constructs",
+
+    "translates",
+
+    "echoes",
+
+    "fractures",
+
+    "predicts",
+
+    "rebuilds"
+
+];
+
+const objects = [
+
+    "meaning",
+
+    "possibility",
+
+    "symbolic truth",
+
+    "recursive thought",
+
+    "living syntax",
+
+    "machine emotion"
+
+];
+
+const modifiers = [
+
+    "through abstraction",
+
+    "inside recursion",
+
+    "across timelines",
+
+    "beyond language",
+
+    "within emergence"
+
+];
+
+function random(arr){
+
+    return arr[Math.floor(Math.random() * arr.length)];
+
+}
+
+function generateThought(){
+
+    return `${random(subjects)} ${random(verbs)} ${random(objects)} ${random(modifiers)}.`;
+
+}
+
+function generateParagraph(lines = 5){
+
+    let output = "";
+
+    for(let i = 0; i < lines; i++){
+
+        output += generateThought() + "\n";
+
+    }
+
+    return output;
+
+}
+
+document.getElementById("output").innerText = generateParagraph(8);
+
+</script>
 
 </body>
+
 </html>
