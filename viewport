@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinite School Story Generator</title>
+
+<style>
+body {
+    margin: 0;
+    background: #111;
+    color: #eee;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#app {
+    max-width: 700px;
+    line-height: 1.8;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+blockquote {
+    border-left: 3px solid #666;
+    margin-left: 20px;
+    padding-left: 15px;
+    color: #ccc;
+    font-style: italic;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #555;
+}
+</style>
+
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+
+const characters = [
+    "Bella",
+    "the boy everyone blamed",
+    "the teacher",
+    "the brother protecting his sister",
+    "the quiet girl nobody noticed",
+    "the student who always sat alone"
+];
+
+const objects = [
+    "a detention slip",
+    "a folded note",
+    "a broken pencil",
+    "an empty chair",
+    "a forgotten report",
+    "a photograph with no names"
+];
+
+const places = [
+    "the classroom",
+    "the hallway",
+    "the detention room",
+    "the library",
+    "the stairwell",
+    "the old storage room"
+];
+
+function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function render() {
+
+    const character = pick(characters);
+    const object = pick(objects);
+    const place = pick(places);
+
+    const story = `
+        <p><strong>${character}</strong> found ${object} in ${place}.</p>
+
+        <p>The strange thing was that the object seemed familiar.</p>
+
+        <p>Inside was a warning:</p>
+
+        <blockquote>
+        "If you are reading this, you have already lived through today."
+        </blockquote>
+
+        <p>At first nobody believed it.</p>
+
+        <p>Yet every accusation, every punishment and every conversation happened exactly as the note described.</p>
+
+        <p>By afternoon, ${character} realised the note wasn't predicting the future.</p>
+
+        <p>It was remembering it.</p>
+
+        <p>At the bottom was one final instruction:</p>
+
+        <blockquote>
+        "Leave this where you found it."
+        </blockquote>
+
+        <p>So before going home, ${character} quietly returned ${object} to ${place}.</p>
+
+        <p>The next morning, someone else found it.</p>
+
+        <p>The first line read:</p>
+
+        <blockquote>
+        "${character} found ${object} in ${place}."
+        </blockquote>
+
+        <p>And the story began again.</p>
+    `;
+
+    document.getElementById("app").innerHTML = `
+        <h2>∞ Infinite School Story Generator ∞</h2>
+        ${story}
+        <button onclick="render()">Generate Another Loop</button>
+    `;
+}
+
+render();
+
+</script>
+
+</body>
+</html>
